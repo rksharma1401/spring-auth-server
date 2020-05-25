@@ -5,14 +5,14 @@ import javax.persistence.*;
 @Entity
 @Table(name = "User")
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id 
     private int id;
     private String userName;
     private String password;
     private boolean active;
     private String roles;
 
+    public User(){}
     public int getId() {
         return id;
     }
@@ -50,6 +50,13 @@ public class User {
     }
 
     public void setRoles(String roles) {
+        this.roles = roles;
+    }
+
+    public User(String userName, String password, boolean active, String roles) {
+        this.userName = userName;
+        this.password = password;
+        this.active = active;
         this.roles = roles;
     }
 }

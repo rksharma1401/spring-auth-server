@@ -22,9 +22,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        System.out.println(" ********************************** in configure **********************************");
         http.authorizeRequests()
-                .antMatchers("/admin").hasRole("ADMIN")
-                .antMatchers("/user").hasAnyRole("ADMIN", "USER")
+                .antMatchers("/admin/**").hasRole("ADMIN")
+                .antMatchers("/user/**").hasRole("USER")
                 .antMatchers("/").permitAll()
                 .and().formLogin();
     }
